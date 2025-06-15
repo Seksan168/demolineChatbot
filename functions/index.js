@@ -1,19 +1,25 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
 const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+const utils = require("./utils");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// 1. install dependencies & create .env file
 
-exports.webHook = onRequest((request, response) => {
-  logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase!");
+exports.webhook = onRequest(async (req, res) => {
+    const events = req.body.events;
+    for (const event of events) {
+    
+        // 2. Detect if message is text
+        
+
+            // 3. Create the logic to handle user's request (Text/Image)
+            
+
+            
+                // 5. Call function that use OpenAI API to create image
+                
+                
+            
+                // 4. Call function that use OpenAI API to handle text
+
+    }
+    res.send(req.method);
 });
